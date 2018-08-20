@@ -5,6 +5,6 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/meelas/kafka-ms.git/
+          uri: https://github.com/meelas/kafka.git/
           search-paths:
-            - "EmailServiceConfigProperties/{application}/{profile}"
+            - "ConfigProperties/{application}/{profile}"
