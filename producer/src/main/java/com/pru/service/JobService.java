@@ -3,8 +3,6 @@ package com.pru.service;
 import com.pru.domain.Job;
 import com.pru.domain.Service;
 import com.pru.produce.Producer;
-import com.pru.repository.DefaultRepository;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -22,22 +20,14 @@ public class JobService implements DefaultService {
     private String defaultTopic;
 
     @Autowired
-    private DefaultRepository repository;
-    @Autowired
     private Producer producer;
 
     @Override
     public Job submitJob(String serviceName) {
         Job job = new Job(Service.valueOf(serviceName));
-        Job save = repository.save(job);
-        String topic = getTopic(save);
-        producer.send(topic, save);
-        return save;
-    }
-
-    @Override
-    public Iterable<Job> findAll() {
-        return repository.findAll();
+        String topic = getTopic(job);
+        producer.send(topic, job);
+        return job;
     }
 
     private String getTopic(Job job) {

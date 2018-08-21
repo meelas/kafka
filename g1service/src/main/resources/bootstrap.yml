@@ -1,8 +1,8 @@
 server:
-  port: 8181
+  port: 8191
 spring:
   application:
-    name: consumer-service
+    name: g1-service
   profiles:
     active: dev  
   cloud:

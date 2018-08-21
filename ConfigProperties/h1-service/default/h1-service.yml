@@ -1,0 +1,23 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+  kafka:
+    bootstrap-servers: 10.17.14.94:9092
+    topic:
+      dev: dev.t
+      partitioned: partitioned.t
+      g1: gt1
+      h1: ht1
+      p1: pt1
+      g2: gout
+      h2: hout
+      p2: pout
+security:
+  basic:
+    enabled: false

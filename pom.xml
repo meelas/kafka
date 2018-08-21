@@ -27,5 +27,8 @@
         <module>consumer</module>
         <module>eureka</module>
         <module>config</module>
+        <module>g1service</module>
+        <module>p1service</module>
+        <module>h1service</module>
     </modules>
 </project>
