@@ -1,0 +1,4 @@
+com\pru\domain\Job.class
+com\pru\produce\Producer.class
+com\pru\ProducerApplication.class
+com\pru\KafkaProducerConfig.class

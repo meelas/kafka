@@ -1,23 +1,5 @@
 version: '2'
 services:
-
-  discovery-service:
-    build:
-      context: eureka
-      dockerfile: Dockerfile
-    ports:
-      - "8761:8761"
-
-  config-server:
-    build:
-      context: config
-      dockerfile: Dockerfile
-    depends_on:
-      discovery-service:
-        condition: service_healthy
-    ports:
-      - 8888:8888
-
   kafka:
     build:
       context: kafka_zk
@@ -26,8 +8,31 @@ services:
       - "2181:2181"
       - "9092:9092"
     environment:
-      KAFKA_CREATE_TOPICS: "test:1:1, meel.t:3:3, dev.t:1:1"
+      KAFKA_CREATE_TOPICS: "test:1:1, prod.t:3:3, dev.t:1:1"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+  root:
+    build: .
+    depends_on:
+      - kafka
+
+  discovery-service:
+    build:
+      context: eureka
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    depends_on:
+      - root
+
+  config-server:
+    build:
+      context: config
+      dockerfile: Dockerfile
+    depends_on:
+      - root
+    ports:
+      - 8888:8888
 
   consumer:
      build:
@@ -35,8 +40,8 @@ services:
         dockerfile: Dockerfile
      ports:
       - "8181:8181"
-    depends_on:
-          - kafka
+     depends_on:
+          - root
 
   producer:
     build:
@@ -45,9 +50,4 @@ services:
     ports:
       - "8180:8180"
     depends_on:
-          - kafka
-
-  spring_boot:
-    build: .
-    depends_on:
-      - kafka
+          - root

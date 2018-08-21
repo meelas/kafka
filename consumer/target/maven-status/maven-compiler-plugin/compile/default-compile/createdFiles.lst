@@ -1,0 +1,4 @@
+com\pru\KafkaConsumerConfig.class
+com\pru\domain\JobDto.class
+com\pru\consume\Consumer.class
+com\pru\ConsumerApplication.class
