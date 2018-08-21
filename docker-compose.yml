@@ -8,7 +8,7 @@ services:
       - "2181:2181"
       - "9092:9092"
     environment:
-      KAFKA_CREATE_TOPICS: "test:1:1, prod.t:3:3, dev.t:1:1"
+      KAFKA_CREATE_TOPICS: "dev.t:1:1, gt1:1:1, h1:1:1, p1:1:1, gout:1:1, pout:1:1, hout:1:1"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
 
   root:

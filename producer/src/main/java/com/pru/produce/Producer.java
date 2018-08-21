@@ -16,10 +16,7 @@ public class Producer {
     @Autowired
     private KafkaTemplate<String, Job> kafkaTemplate;
 
-    @Value("${spring.kafka.topic.dev}")
-    private String topic;
-
-    public void send(Job message){
+    public void send(String topic, Job message){
         LOG.info("sending message='{}' to topic='{}'", message, topic);
         kafkaTemplate.send(topic, message);
     }

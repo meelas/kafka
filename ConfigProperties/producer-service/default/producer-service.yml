@@ -12,6 +12,12 @@ spring:
     topic:
       dev: dev.t
       partitioned: partitioned.t
+      g1: gt1
+      h1: ht1
+      p1: pt1
+      g2: gout
+      h2: hout
+      p2: pout
 security:
   basic:
     enabled: false
