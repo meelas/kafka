@@ -1,11 +1,10 @@
 com\pru\domain\Job.class
-com\pru\repository\DefaultRepository.class
 com\pru\service\DefaultService.class
 com\pru\controller\DefaultController.class
 com\pru\service\JobService$1.class
-com\pru\domain\Service.class
-com\pru\produce\Producer.class
-com\pru\SwaggerConfig.class
 com\pru\ProducerApplication.class
 com\pru\KafkaProducerConfig.class
+com\pru\domain\Service.class
 com\pru\service\JobService.class
+com\pru\produce\Producer.class
+com\pru\SwaggerConfig.class

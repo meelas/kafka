@@ -22,15 +22,6 @@ public class DefaultController {
         this.jobService = jobService;
     }
 
-    @ApiOperation(value = "Get all jobs")
-    @RequestMapping(method = RequestMethod.GET, path = "/jobs")
-    public ResponseEntity<Iterable<Job>> getAll() {
-
-        Iterable<Job> all = jobService.findAll();
-
-        return new ResponseEntity<>(all, HttpStatus.OK);
-    }
-
     @RequestMapping(method = RequestMethod.POST, path = "/submit")
     @ApiOperation(value = "submit job for specific service")
     public ResponseEntity<Job> register(@RequestParam(value = "service") String service) {
