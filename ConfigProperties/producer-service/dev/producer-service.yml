@@ -8,7 +8,7 @@ spring:
     username: sa
     password:
   kafka:
-    bootstrap-servers: 10.17.14.94:9092
+    bootstrap-servers: localhost:9092
     topic:
       dev: dev.t
       partitioned: partitioned.t
